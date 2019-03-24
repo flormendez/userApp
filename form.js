@@ -1,4 +1,4 @@
-//Book Class: Represents a Book
+//User Class: Represents a User
 class User {
   constructor(id, name, mail, birth, gender) {
     this.id = id;
@@ -39,7 +39,7 @@ class UI {
 
     list.appendChild(row);
   }
-  // <td><a href="#" class="delete" ><i class="far fa-trash-alt"></i></a></td>
+
   static deleteUser(el) {
     if (el.classList.contains("delete")) {
       el.parentElement.parentElement.remove();
@@ -96,10 +96,10 @@ class Store {
   }
 }
 
-// Event: Display Books
+// Event: Display User
 document.addEventListener("DOMContentLoaded", UI.displayUsers);
 
-//Event: Add a Book
+//Event: Add a User
 document.querySelector("#user-form").addEventListener("submit", e => {
   //Prevent actual submit
   e.preventDefault();
@@ -121,13 +121,13 @@ document.querySelector("#user-form").addEventListener("submit", e => {
   ) {
     UI.showAlert("Please fill in all fields", "danger");
   } else {
-    // Instatiate book
+    // Instatiate user
     const user = new User(id, name, mail, birth, gender);
 
-    // Add Book to UI
+    // Add User to UI
     UI.addUserToList(user);
 
-    // Add book to store
+    // Add User to store
     Store.addUser(user);
 
     // Show Succes Msg
@@ -138,12 +138,12 @@ document.querySelector("#user-form").addEventListener("submit", e => {
   }
 });
 
-// Event: Remove a Book
+// Event: Remove a user
 document.querySelector("#user-list").addEventListener("click", e => {
-  // Remove Book from UI
+  // Remove user from UI
   UI.deleteUser(e.target);
 
-  // Remove a book from store
+  // Remove a user from store
   Store.removeUser(e.target);
 
   // Show Succes Msg
